@@ -102,6 +102,17 @@
                 },
                 {
                     "name": "",
+                    "id": "fdfcbffe-0b95-47db-a2da-260000369943",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1a49004d-e935-4ada-954f-0e815964b971",
                     "path": "<Mouse>/leftButton",
                     "interactions": "Press(behavior=2)",
@@ -123,59 +134,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Aim Direction GamePad",
-                    "id": "3f14df97-bd27-45c0-bf90-3b61707f63c7",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "3be920e5-d797-4efa-9971-2a76c4516668",
+                    "path": "<XInputController>/rightTrigger",
                     "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "",
-                    "action": "Aim",
-                    "isComposite": true,
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Fire",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "8d7870c6-08c3-4ed8-a979-0c8a895bbbed",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "3adda7d2-6a01-4dc4-8f55-793c4299b9af",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "49775e60-d148-432d-aadd-fd96e15473e7",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "0daadea4-d301-4c2a-a8a7-209187030d80",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -184,6 +151,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aabe3583-bf6a-4242-b150-9875c26299be",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89d5540a-59fc-440d-99b7-9fd08155375a",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
                     "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false

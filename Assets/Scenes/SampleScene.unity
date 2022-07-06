@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4eb6ed4d934faa408cde0764900977a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxGamepadAimDistance: 5
 --- !u!50 &174794426
 Rigidbody2D:
   serializedVersion: 4
