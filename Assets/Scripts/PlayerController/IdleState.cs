@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IdleState : PlayerBaseState
 {
+    PlayerHealth _playerHealth;
+
     public IdleState(PlayerController context) : base(context)
     {
     }
@@ -16,10 +18,13 @@ public class IdleState : PlayerBaseState
 
     public override void EnterState()
     {
+        _playerHealth = _ctx.GetComponent<PlayerHealth>();
+        _playerHealth.StartTimer();
     }
 
     public override void ExitState()
     {
+        _playerHealth.StopTimer();
     }
 
     public override void FixedUpdateState()

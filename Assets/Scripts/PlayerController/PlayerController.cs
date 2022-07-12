@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     Vector3 _aimPoint;
     float _requestFire = 0;                                         //It's <0.5 if we don't want to fire
 
+    public Vector3 AimPoint { get { return _aimPoint; } }
+
     [Header("Controls")]
     [Range(5f,20f)]
     [SerializeField] [Tooltip("Maximum distance a player can aim to")]
@@ -62,7 +64,6 @@ public class PlayerController : MonoBehaviour
         _input.PlayerControls.Run.performed += ctx =>
         {
             _desiredMoveDirection = ctx.ReadValue<Vector2>().normalized;
-            Debug.Log(_desiredMoveDirection);
             if (_desiredMoveDirection.magnitude > .1f) _isMoving = true;
             else _isMoving = false;
         };
