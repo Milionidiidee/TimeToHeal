@@ -24,12 +24,16 @@ public class PlayerController : MonoBehaviour
     Vector3 _aimPoint;
     float _requestFire = 0;                                         //It's <0.5 if we don't want to fire
 
+    public bool RequestFire { get { if (_requestFire > .5) return true; return false; } }
+
     public Vector3 AimPoint { get { return _aimPoint; } }
 
     [Header("Controls")]
     [Range(5f,20f)]
     [SerializeField] [Tooltip("Maximum distance a player can aim to")]
     float _maxGamepadAimDistance = 20f;
+    [SerializeField]
+    float _rotationResponsivness = 5f;
 
     //Move Variables
     Vector2 _desiredMoveDirection = Vector2.zero;
@@ -74,14 +78,14 @@ public class PlayerController : MonoBehaviour
         };
         _input.PlayerControls.Fire.performed += ctx => _requestFire = ctx.ReadValue<float>();
         _input.PlayerControls.Aim.performed += ctx => {
-            if (ctx.control.device.name == "Mouse")
+            /*if (ctx.control.device.name == "Mouse")
             {
                 //Assuming the input comes from the mouse position
                 Vector2 screenPoint = ctx.ReadValue<Vector2>();
                 _aimPoint = Camera.main.ScreenToWorldPoint(new Vector3(screenPoint.x, screenPoint.y, Camera.main.nearClipPlane));
                 _aimPoint.z = 0;
             }
-            else
+            else */if (ctx.control.device.name != "Mouse")
             {
                 //The only other supported device currently is a GamePad
                 Vector2 aimPos = ctx.ReadValue<Vector2>();
@@ -114,7 +118,15 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        /* MOUSE POSITION IS NOT CONTINUOUS WITH INPUT SYSTEM (THIS IS A QUICK FIX)*/
 
+        //Assuming the input comes from the mouse position
+        Vector2 screenPoint = _input.FindAction("Aim").ReadValue<Vector2>();
+        _aimPoint = Camera.main.ScreenToWorldPoint(new Vector3(screenPoint.x, screenPoint.y, Camera.main.nearClipPlane));
+        _aimPoint.z = 0;
+
+        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, _aimPoint - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * _rotationResponsivness);
     }
 
     void FixedUpdate()
